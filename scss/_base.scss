@@ -1,0 +1,173 @@
+@import "mixins";
+@use "extends";
+
+// modules
+$font-stack: "Encode Sans", sans-serif;
+$color-primary: #4f4f4f;
+// ====================== //
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @extend %code-primary-desk;
+  overflow: hidden;
+  background-color: $color-primary;
+}
+
+main {
+  height: 100vh;
+  padding: 10px;
+  @include dflex-center;
+  .procedure {
+    @extend %base-procedure;
+    &#procedure__step-0 {
+      .content {
+        &__head {
+          font-size: 55px;
+        }
+        &__image {
+          height: 200px;
+          &-end {
+            bottom: 60px;
+            right: 0;
+          }
+        }
+      }
+    }
+    &#procedure__step-1 {
+      position: relative;
+      &::before {
+        @include bg-desktop(url("../images/bg-slide-1.png"), left);
+      }
+      .content {
+        @include content-desktop(50%, 72px, 600px);
+      }
+    }
+    &#procedure__step-2 {
+      position: relative;
+      &::before {
+        @include bg-desktop(url("../images/bg-slide-2.png"), right);
+      }
+      .content {
+        @include content-desktop(50%, 40px, 120px);
+      }
+    }
+    &#procedure__step-3 {
+      position: relative;
+      &::before {
+        @include bg-desktop(url("../images/bg-slide-3.png"), right);
+      }
+      .content {
+        @include content-desktop(50%, 50px, 120px);
+      }
+    }
+    &#procedure__step-4 {
+      position: relative;
+      &::before {
+        @include bg-desktop(url("../images/bg-slide-4.png"), left);
+      }
+      .content {
+        &__head {
+          width: 35%;
+        }
+        &__text {
+          width: 25%;
+        }
+      }
+      .edit__pos {
+        position: absolute;
+        &-left {
+          top: 180px;
+          left: 280px;
+        }
+        &-right {
+          top: 150px;
+          right: 40px;
+        }
+        ul {
+          li {
+            color: $color-primary;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    &#procedure__step-5 {
+      position: relative;
+      &::before {
+        @include bg-desktop(url("../images/bg-slide-5.png"), left);
+      }
+      .content {
+        &__head {
+          width: 40%;
+        }
+        &__text {
+          width: 25%;
+        }
+      }
+      .edit__pos {
+        position: absolute;
+        &-left {
+          top: 100px;
+          left: 150px;
+        }
+        &-right {
+          top: 100px;
+          right: 50px;
+        }
+        ul {
+          li {
+            color: $color-primary;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    &#procedure__step-6 {
+      position: relative;
+      &::before {
+        @include bg-desktop(url("../images/bg-slide-6.png"), center);
+      }
+      .content {
+        @include content-desktop(40%, 250px, 150px);
+        .button__link {
+          margin: auto;
+        }
+      }
+    }
+  }
+  .foot {
+    margin-top: 10px;
+    background-color: $color-primary;
+    border-radius: 10px;
+    @include dflex-center(row);
+    #indicators {
+      padding: 0 20px;
+      margin: 0;
+      display: flex;
+      list-style: none;
+      @include dflex-center(row);
+      .indicator {
+        width: 60px;
+        height: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .active {
+        background-color: lightcoral;
+      }
+      .unactive {
+        background-color: #fff;
+      }
+    }
+    .button {
+      font-size: 30px;
+      color: #fff;
+    }
+  }
+}

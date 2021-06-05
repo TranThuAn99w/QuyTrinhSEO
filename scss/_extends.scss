@@ -1,0 +1,98 @@
+%code-primary-desk {
+  height: 100%;
+  font-family: $font-stack;
+  .hide {
+    display: none;
+    transition: all 0.5s ease-out;
+  }
+  .show {
+    display: block;
+    transition: all 0.5s ease-out;
+  }
+  h3 {
+    @extend %head3-primary;
+  }
+  p {
+    @extend %p-primary;
+  }
+  .button__link {
+    @extend %button_link;
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
+
+%base-procedure {
+  min-height: 600px;
+  padding: 100px 0;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  .image {
+    @include dflex-center;
+    &__person {
+      @extend %equal-div;
+    }
+    &__logo {
+      width: 15%;
+    }
+    &__line {
+      width: 80%;
+    }
+    &__tree,
+    &__grass,
+    &__road {
+      width: 80%;
+    }
+  }
+  .content {
+    @include dflex-center;
+    &__head {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $color-primary;
+    }
+    &__image {
+      &-center {
+        display: flex;
+        justify-content: center;
+      }
+      &-end {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+%equal-div {
+  width: 100%;
+  height: 100%;
+}
+
+%button_link {
+  font-size: 20px;
+  line-height: 37px;
+  text-align: center;
+  padding: 15px 40px;
+  background: #ef004a;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  margin-right: auto;
+}
+
+%p-primary {
+  font-size: 20px;
+  line-height: 40px;
+  margin-bottom: 25px;
+  color: $color-primary;
+}
+
+%head3-primary {
+  font-size: 35px;
+  line-height: 60px;
+}
