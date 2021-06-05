@@ -1,0 +1,312 @@
+@import "mixins";
+@use "extends";
+
+// modules
+$font-stack: "Encode Sans", sans-serif;
+$color-primary: #4f4f4f;
+// ====================== //
+@include respond-tabLand {
+  main {
+    padding: 10px;
+    .procedure {
+      min-height: 500px;
+      &#procedure__step-0 {
+        .content {
+          @include content-pos(70%, 20%, 15%);
+          &__head {
+            font-size: 40px;
+          }
+        }
+      }
+      &#procedure__step-1 {
+        .content {
+          @include content-pos(50%, 30px, 300px);
+          &__head {
+            font-size: 30px;
+            line-height: 40px;
+          }
+          p,
+          .button__link {
+            font-size: 20px;
+            line-height: 30px;
+          }
+          .button__link {
+            padding: 10px 20px;
+          }
+        }
+      }
+      &#procedure__step-2 {
+        .content {
+          @include content-pos(50%, 30px, 50px);
+          &__head {
+            font-size: 30px;
+            line-height: 40px;
+          }
+          p,
+          .button__link {
+            font-size: 20px;
+            line-height: 30px;
+          }
+          .button__link {
+            padding: 10px 20px;
+          }
+        }
+      }
+      &#procedure__step-3 {
+        .content {
+          @include content-pos(50%, 50px, 50px);
+          &__head {
+            font-size: 30px;
+            line-height: 40px;
+          }
+          p,
+          .button__link {
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 10px;
+          }
+          .button__link {
+            padding: 10px;
+          }
+        }
+      }
+      &#procedure__step-4 {
+        .content {
+          @include content-pos(50%, 150px, 180px);
+          &__head {
+            width: 100%;
+            font-size: 30px;
+            line-height: 40px;
+          }
+          &__text {
+            width: 100%;
+            font-size: 20px;
+            line-height: 30px;
+          }
+          ul {
+            li {
+              font-size: 20px;
+            }
+          }
+          .edit__pos {
+            position: static;
+          }
+        }
+      }
+      &#procedure__step-5 {
+        .content {
+          @include content-pos(40%, 50px, 150px);
+          &__head {
+            width: 100%;
+            font-size: 30px;
+            line-height: 40px;
+          }
+          &__text {
+            width: 100%;
+            font-size: 20px;
+            line-height: 30px;
+          }
+          .edit__pos {
+            position: static;
+          }
+          .button__link {
+            padding: 10px;
+          }
+        }
+      }
+      &#procedure__step-6 {
+        .content {
+          @include content-pos(45%, 200px, 80px);
+          &__head {
+            font-size: 30px;
+          }
+          .button__link {
+            padding: 10px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+@include respond-tabPort {
+  main {
+    padding: 10px;
+    .procedure {
+      min-height: 450px;
+      &#procedure__step-0 {
+        .content {
+          @include content-pos(70%, 25%, 20%);
+          &__head {
+            font-size: 40px;
+          }
+        }
+      }
+      &#procedure__step-1 {
+        .content {
+          @include content-pos(50%, 30px, 300px);
+          &__head {
+            font-size: 25px;
+            line-height: 30px;
+          }
+          p,
+          .button__link {
+            font-size: 18px;
+            line-height: 30px;
+          }
+          .button__link {
+            padding: 10px;
+          }
+        }
+      }
+      &#procedure__step-2 {
+        .content {
+          @include content-pos(50%, 30px, 50px);
+          &__head {
+            font-size: 25px;
+            line-height: 30px;
+          }
+          p,
+          .button__link {
+            font-size: 18px;
+            line-height: 30px;
+          }
+          .button__link {
+            padding: 10px;
+          }
+        }
+      }
+      &#procedure__step-3 {
+        .content {
+          @include content-pos(50%, 25px, 50px);
+          &__head {
+            font-size: 25px;
+            line-height: 30px;
+          }
+          p,
+          .button__link {
+            font-size: 18px;
+            line-height: 30px;
+            margin-bottom: 10px;
+          }
+          .button__link {
+            padding: 10px;
+          }
+        }
+      }
+      &#procedure__step-4 {
+        .content {
+          @include content-pos(50%, 130px, 180px);
+          &__head {
+            width: 100%;
+            font-size: 25px;
+            line-height: 30px;
+          }
+          &__text {
+            width: 100%;
+            font-size: 18px;
+            line-height: 30px;
+          }
+          ul {
+            li {
+              font-size: 18px;
+            }
+          }
+          .edit__pos {
+            position: static;
+          }
+        }
+      }
+      &#procedure__step-5 {
+        .content {
+          @include content-pos(50%, 40px, 80px);
+          &__head {
+            width: 100%;
+            font-size: 25px;
+            line-height: 30px;
+          }
+          &__text {
+            width: 100%;
+            font-size: 18px;
+            line-height: 30px;
+          }
+          .edit__pos {
+            position: static;
+          }
+          .button__link {
+            padding: 10px;
+          }
+        }
+      }
+      &#procedure__step-6 {
+        .content {
+          @include content-pos(50%, 180px, 80px);
+          &__head {
+            font-size: 25px;
+          }
+          .button__link {
+            padding: 10px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+@include respond-phone {
+  body {
+    h3.content__head {
+      font-size: 28px;
+      line-height: 40px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+    .button__link {
+      font-size: 18px;
+    }
+  }
+  main {
+    padding: 5px;
+    min-height: 0;
+
+    .procedure {
+      &#procedure__step-0 {
+        height: 736px;
+        @include build-content-after("../images/bg-mb-0.png");
+        .content {
+          display: none;
+        }
+      }
+      &#procedure__step-1 {
+        @include build-content-after("../images/bg-mb-1.png");
+      }
+      &#procedure__step-2 {
+        @include build-content-after("../images/bg-mb-2.png");
+      }
+      &#procedure__step-3 {
+        @include build-content-after("../images/bg-mb-3.png");
+      }
+      &#procedure__step-4 {
+        @include build-content-after("../images/bg-mb-4.png");
+      }
+      &#procedure__step-5 {
+        @include build-content-after("../images/bg-mb-5.png");
+      }
+      &#procedure__step-6 {
+        @include build-content-after("../images/bg-mb-6.png");
+        .content__head {
+          font-size: 32px;
+        }
+        .image__line {
+          margin-bottom: 15px;
+        }
+        .button__link a {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

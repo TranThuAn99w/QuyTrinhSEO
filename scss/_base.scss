@@ -19,22 +19,23 @@ body {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   padding: 10px;
   @include dflex-center;
   .procedure {
     @extend %base-procedure;
     &#procedure__step-0 {
+      position: relative;
+      &::before {
+        @include bg-desktop(url("../images/demo.png"), right);
+      }
+      &::after {
+        display: none;
+      }
       .content {
+        @include content-pos(50%, 25%, 25%);
         &__head {
-          font-size: 55px;
-        }
-        &__image {
-          height: 200px;
-          &-end {
-            bottom: 60px;
-            right: 0;
-          }
+          font-size: 52px;
         }
       }
     }
@@ -44,7 +45,10 @@ main {
         @include bg-desktop(url("../images/bg-slide-1.png"), left);
       }
       .content {
-        @include content-desktop(50%, 72px, 600px);
+        @include content-pos(50%, 72px, 600px);
+      }
+      &::after {
+        display: none;
       }
     }
     &#procedure__step-2 {
@@ -53,7 +57,10 @@ main {
         @include bg-desktop(url("../images/bg-slide-2.png"), right);
       }
       .content {
-        @include content-desktop(50%, 40px, 120px);
+        @include content-pos(50%, 40px, 120px);
+      }
+      &::after {
+        display: none;
       }
     }
     &#procedure__step-3 {
@@ -62,7 +69,10 @@ main {
         @include bg-desktop(url("../images/bg-slide-3.png"), right);
       }
       .content {
-        @include content-desktop(50%, 70px, 100px);
+        @include content-pos(50%, 70px, 100px);
+      }
+      &::after {
+        display: none;
       }
     }
     &#procedure__step-4 {
@@ -95,6 +105,9 @@ main {
           }
         }
       }
+      &::after {
+        display: none;
+      }
     }
     &#procedure__step-5 {
       position: relative;
@@ -119,12 +132,9 @@ main {
           top: 100px;
           right: 50px;
         }
-        ul {
-          li {
-            color: $color-primary;
-            font-size: 20px;
-          }
-        }
+      }
+      &::after {
+        display: none;
       }
     }
     &#procedure__step-6 {
@@ -133,79 +143,168 @@ main {
         @include bg-desktop(url("../images/bg-slide-6.png"), center);
       }
       .content {
-        @include content-desktop(40%, 250px, 150px);
+        @include content-pos(40%, 250px, 150px);
         .button__link {
           margin: auto;
         }
       }
+      &::after {
+        display: none;
+      }
     }
   }
-  .nav-edit {
-    align-items: center;
-    justify-content: space-between;
-    color: $color-primary;
-    .button {
-      height: 100%;
-      padding: 10px;
-      @include dflex-center(row);
-      font-size: 25px;
-      background-color: #fff;
+  .controls {
+    .controls__desk {
+      align-items: center;
+      // justify-content: space-between;
       color: $color-primary;
-      border: none;
-      outline: none;
-      &:hover,
-      &:focus {
-        @extend %color-active;
-      }
-    }
-    a.button {
-      height: 100%;
-      font-size: 18px;
-      padding: 10px;
-      margin: 0;
-      color: $color-primary;
-      &:hover {
-        @extend %color-active;
-        transform: translateY(-10px);
-        transition: 0.3s all ease-in-out;
-      }
-      span {
-        margin-left: 5px;
-      }
-    }
-    .nav__foot {
-      margin: 10px;
-      background-color: $color-primary;
-      @include dflex-center(row);
-      #indicators {
-        padding: 0 5px;
-        margin: 0;
-        display: flex;
-        list-style: none;
+      .button {
+        padding: 10px;
         @include dflex-center(row);
-        .indicator {
-          width: 125px;
-          padding: 10px 0;
-          margin: 5px;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 18px;
+        font-size: 25px;
+        background-color: #fff;
+        color: $color-primary;
+        border: none;
+        outline: none;
+        &:hover,
+        &:focus {
+          @extend %color-active;
+        }
+      }
+      a.button {
+        width: 125px;
+        font-size: 18px;
+        padding: 10px;
+        margin: 0;
+        color: $color-primary;
+        &:hover {
+          @extend %color-active;
+          transform: translateY(-10px);
+          transition: 0.3s all ease-in-out;
+        }
+        span {
+          margin-left: 5px;
+        }
+      }
+      .nav__foot {
+        margin: 10px;
+        background-color: $color-primary;
+        @include dflex-center(row);
+        #indicators {
+          padding: 0 5px;
+          margin: 0;
+          display: flex;
+          list-style: none;
           @include dflex-center(row);
-          span {
-            margin-left: 5px;
-          }
-          &.active {
-            @extend %color-active;
-          }
-          &.unactive {
-            background-color: #fff;
-          }
-          &:hover {
-            @extend %color-active;
-            transform: translateY(-10px);
-            transition: 0.3s all ease-in-out;
+          .indicator {
+            width: 120px;
+            padding: 10px 0;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            @include dflex-center(row);
+            span {
+              margin-left: 5px;
+            }
+            &.active {
+              @extend %color-active;
+            }
+            &.unactive {
+              background-color: #fff;
+            }
+            &:hover {
+              @extend %color-active;
+              transform: translateY(-10px);
+              transition: 0.3s all ease-in-out;
+            }
           }
         }
+      }
+    }
+    .controls__mb {
+      display: none;
+      &-buttons {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 9;
+        background: #4f4f4f;
+        padding: 5px 10px;
+        span {
+          font-weight: 700;
+          color: white;
+          font-size: 18px;
+        }
+        .button {
+          font-size: 25px;
+          color: white;
+        }
+      }
+      #get-name-step {
+        color: #fff;
+        span {
+          margin-left: 10px;
+        }
+      }
+    }
+    @include respond-tabLand {
+      .controls__desk {
+        justify-content: center;
+        a.button,
+        .indicator {
+          max-width: 60px;
+          transition: 0.5s all ease-out;
+          span {
+            display: none;
+          }
+        }
+        .indicator,
+        a.button {
+          &:hover {
+            max-width: 125px;
+            span {
+              display: block;
+              width: fit-content;
+              background-color: $color-primary;
+              color: white;
+              position: absolute;
+              top: -50px;
+              padding: 5px;
+              border-radius: 5px;
+              &::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background-color: $color-primary;
+                position: absolute;
+                bottom: -5px;
+                left: 50%;
+                transform: rotate(45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+    @include respond-tabPort {
+      .controls__desk {
+        display: none;
+      }
+      .controls__mb {
+        display: block;
+      }
+    }
+    @include respond-phone {
+      .controls__desk {
+        display: none;
+      }
+      .controls__mb {
+        display: block;
       }
     }
   }

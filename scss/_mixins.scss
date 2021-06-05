@@ -1,44 +1,16 @@
-/*
-  *Dùng mixin để khai báo từng độ phân giải màn hình
-  Element nào cần thay đổi ở dộ phân giải màn hình nào thì ta chỉ *việc gọi mixin tương ứng ra và sử dụng cấu trúc lồng viết luôn thuộc tính cần thay đổi tại đó.
-*/
-// set giá trị từng màn hình tương ứng (3-loại-chính)
-$mobile-width: 480px;
-$tablet-width: 768px;
-$desktop-width: 1240px;
 @mixin respond-phone {
   @media (max-width: 600px) {
     @content;
   }
 }
-
-@mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media only screen and (max-width: 37.5em) {
-      // 600px
-      @content;
-    }
+@mixin respond-tabPort {
+  @media (max-width: 900px) {
+    @content;
   }
-
-  @if $breakpoint == tab-port {
-    @media only screen and (max-width: 56.25em) {
-      // 900px
-      @content;
-    }
-  }
-
-  @if $breakpoint == tab-land {
-    @media only screen and (max-width: 75em) {
-      // 1200px
-      @content;
-    }
-  }
-
-  @if $breakpoint == big-desktop {
-    @media only screen and (min-width: 112.5em) {
-      // 1800px
-      @content;
-    }
+}
+@mixin respond-tabLand {
+  @media (max-width: 1200px) {
+    @content;
   }
 }
 
@@ -60,12 +32,56 @@ $desktop-width: 1240px;
   position: absolute;
   background-position: $bg-pos;
   top: 0;
-  right: 0;
+  left: 0;
 }
 
-@mixin content-desktop($width-content, $x, $y) {
+@mixin content-pos($width-content, $x, $y) {
   width: $width-content;
   top: $x;
   left: $y;
   position: absolute;
+}
+@mixin build-content-after($url-image) {
+  border-radius: 0;
+  &::before {
+    display: none;
+  }
+  &::after {
+    @include bg-desktop(url($url-image), top);
+    background-size: cover;
+    display: block;
+    z-index: 1;
+  }
+  .content {
+    @include content-pos(100%, 250px, 0);
+    padding: 0 20px;
+    z-index: 9;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    box-shadow: 0px 1px 6px 3px #888;
+    .edit__pos {
+      position: static;
+    }
+    &__head {
+      width: 100%;
+    }
+    &__text {
+      width: 100%;
+    }
+    p,
+    .button__link {
+      font-size: 18px;
+    }
+    .button__link {
+      margin: 0 auto;
+      padding: 10px 15px;
+    }
+    ul {
+      li {
+        font-size: 18px;
+      }
+    }
+  }
 }
