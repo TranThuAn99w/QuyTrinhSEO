@@ -114,8 +114,8 @@ main .procedure#procedure__step-3::before {
 
 main .procedure#procedure__step-3 .content {
   width: 50%;
-  top: 50px;
-  left: 120px;
+  top: 70px;
+  left: 100px;
   position: absolute;
 }
 
@@ -235,10 +235,61 @@ main .procedure#procedure__step-6 .content .button__link {
   margin: auto;
 }
 
-main .foot {
-  margin-top: 10px;
+main .nav-edit {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #4f4f4f;
+}
+
+main .nav-edit .button {
+  height: 100%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+  background-color: #fff;
+  color: #4f4f4f;
+  border: none;
+  outline: none;
+}
+
+main .nav-edit a.button {
+  height: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 0;
+  color: #4f4f4f;
+}
+
+main .nav-edit a.button:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+
+main .nav-edit a.button span {
+  margin-left: 5px;
+}
+
+main .nav-edit .nav__foot {
+  margin: 10px;
   background-color: #4f4f4f;
-  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -254,8 +305,8 @@ main .foot {
           align-items: center;
 }
 
-main .foot #indicators {
-  padding: 0 20px;
+main .nav-edit .nav__foot #indicators {
+  padding: 0 5px;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -274,25 +325,41 @@ main .foot #indicators {
           align-items: center;
 }
 
-main .foot #indicators .indicator {
-  width: 60px;
-  height: 10px;
+main .nav-edit .nav__foot #indicators .indicator {
+  width: 125px;
+  padding: 10px 0;
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-main .foot #indicators .active {
-  background-color: lightcoral;
+main .nav-edit .nav__foot #indicators .indicator span {
+  margin-left: 5px;
 }
 
-main .foot #indicators .unactive {
+main .nav-edit .nav__foot #indicators .indicator.unactive {
   background-color: #fff;
 }
 
-main .foot .button {
-  font-size: 30px;
-  color: #fff;
+main .nav-edit .nav__foot #indicators .indicator:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 
 /*
@@ -407,9 +474,6 @@ body .button__link {
   line-height: 37px;
   text-align: center;
   padding: 15px 40px;
-  background: #ef004a;
-  color: white;
-  font-weight: 700;
   border-radius: 10px;
   border: none;
   margin-right: auto;
@@ -425,5 +489,11 @@ body p {
 body h3 {
   font-size: 35px;
   line-height: 60px;
+}
+
+main .nav-edit .button:hover, main .nav-edit .button:focus, main .nav-edit a.button:hover, main .nav-edit .nav__foot #indicators .indicator.active, main .nav-edit .nav__foot #indicators .indicator:hover, body .button__link {
+  background-color: #ef004a;
+  color: white;
+  font-weight: 700;
 }
 /*# sourceMappingURL=main.css.map */

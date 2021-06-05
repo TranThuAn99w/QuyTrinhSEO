@@ -62,7 +62,7 @@ main {
         @include bg-desktop(url("../images/bg-slide-3.png"), right);
       }
       .content {
-        @include content-desktop(50%, 50px, 120px);
+        @include content-desktop(50%, 70px, 100px);
       }
     }
     &#procedure__step-4 {
@@ -140,34 +140,73 @@ main {
       }
     }
   }
-  .foot {
-    margin-top: 10px;
-    background-color: $color-primary;
-    border-radius: 10px;
-    @include dflex-center(row);
-    #indicators {
-      padding: 0 20px;
-      margin: 0;
-      display: flex;
-      list-style: none;
+  .nav-edit {
+    align-items: center;
+    justify-content: space-between;
+    color: $color-primary;
+    .button {
+      height: 100%;
+      padding: 10px;
       @include dflex-center(row);
-      .indicator {
-        width: 60px;
-        height: 10px;
-        margin: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .active {
-        background-color: lightcoral;
-      }
-      .unactive {
-        background-color: #fff;
+      font-size: 25px;
+      background-color: #fff;
+      color: $color-primary;
+      border: none;
+      outline: none;
+      &:hover,
+      &:focus {
+        @extend %color-active;
       }
     }
-    .button {
-      font-size: 30px;
-      color: #fff;
+    a.button {
+      height: 100%;
+      font-size: 18px;
+      padding: 10px;
+      margin: 0;
+      color: $color-primary;
+      &:hover {
+        @extend %color-active;
+        transform: translateY(-10px);
+        transition: 0.3s all ease-in-out;
+      }
+      span {
+        margin-left: 5px;
+      }
+    }
+    .nav__foot {
+      margin: 10px;
+      background-color: $color-primary;
+      @include dflex-center(row);
+      #indicators {
+        padding: 0 5px;
+        margin: 0;
+        display: flex;
+        list-style: none;
+        @include dflex-center(row);
+        .indicator {
+          width: 125px;
+          padding: 10px 0;
+          margin: 5px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 18px;
+          @include dflex-center(row);
+          span {
+            margin-left: 5px;
+          }
+          &.active {
+            @extend %color-active;
+          }
+          &.unactive {
+            background-color: #fff;
+          }
+          &:hover {
+            @extend %color-active;
+            transform: translateY(-10px);
+            transition: 0.3s all ease-in-out;
+          }
+        }
+      }
     }
   }
 }

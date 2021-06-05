@@ -77,12 +77,10 @@
   line-height: 37px;
   text-align: center;
   padding: 15px 40px;
-  background: #ef004a;
-  color: white;
-  font-weight: 700;
   border-radius: 10px;
   border: none;
   margin-right: auto;
+  @extend %color-active;
 }
 
 %p-primary {
@@ -95,4 +93,10 @@
 %head3-primary {
   font-size: 35px;
   line-height: 60px;
+}
+
+%color-active {
+  background-color: #ef004a;
+  color: white;
+  font-weight: 700;
 }

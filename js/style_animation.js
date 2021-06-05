@@ -13,6 +13,20 @@ $(document).ready(function(){
         }
         var lastProc = $(".show").index();
         var lastIndic = $(".active").index();
+        $("#procedure__step-"+i).click(function(){
+            var count = lastProc + 1;
+           
+            console.log("last-procedure--"+lastProc);
+            console.log("last-indicator--"+lastIndic);
+            console.log("current-Index--" +count);
+            console.log("=========================");
+            if(count < procedures.length){
+            showProcedure(count, lastProc);
+            showIndicator(count, lastIndic);
+            lastProc = count;
+            lastIndic = count;
+            }
+        })
         $("#indicator-"+i).click(function(){
             var currentIndex = $(this).index();
             console.log("last-procedure--"+lastProc);
