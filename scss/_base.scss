@@ -156,7 +156,7 @@ main {
   .controls {
     .controls__desk {
       align-items: center;
-      // justify-content: space-between;
+      justify-content: center;
       color: $color-primary;
       .button {
         padding: 10px;
@@ -171,21 +171,21 @@ main {
           @extend %color-active;
         }
       }
-      a.button {
-        width: 125px;
-        font-size: 18px;
-        padding: 10px;
-        margin: 0;
-        color: $color-primary;
-        &:hover {
-          @extend %color-active;
-          transform: translateY(-10px);
-          transition: 0.3s all ease-in-out;
-        }
-        span {
-          margin-left: 5px;
-        }
-      }
+      // a.button {
+      //   width: 125px;
+      //   font-size: 18px;
+      //   padding: 10px;
+      //   margin: 0;
+      //   color: $color-primary;
+      //   &:hover {
+      //     @extend %color-active;
+      //     transform: translateY(-10px);
+      //     transition: 0.3s all ease-in-out;
+      //   }
+      //   span {
+      //     margin-left: 5px;
+      //   }
+      // }
       .nav__foot {
         margin: 10px;
         background-color: $color-primary;
@@ -251,41 +251,42 @@ main {
           margin-left: 10px;
         }
       }
-    }
-    @include respond-tabLand {
-      .controls__desk {
-        justify-content: center;
-        a.button,
-        .indicator {
-          max-width: 60px;
-          transition: 0.5s all ease-out;
-          span {
-            display: none;
+      &-menu {
+        position: absolute;
+        z-index: 9;
+        background-color: $color-primary;
+        // background-color: #ef004a;
+        top: 0;
+        right: 0;
+        z-index: 8s;
+        padding: 5px;
+        border-radius: 5px 0 0 5px;
+        .button {
+          font-size: 20px;
+          .fa-hamburger {
+            color: white;
           }
+          // .fa-times {
+          //   display: none;
+          // }
         }
-        .indicator,
-        a.button {
-          &:hover {
-            max-width: 125px;
-            span {
-              display: block;
-              width: fit-content;
-              background-color: $color-primary;
-              color: white;
-              position: absolute;
-              top: -50px;
-              padding: 5px;
-              border-radius: 5px;
-              &::after {
-                content: "";
-                width: 10px;
-                height: 10px;
-                background-color: $color-primary;
-                position: absolute;
-                bottom: -5px;
-                left: 50%;
-                transform: rotate(45deg);
-              }
+        #indicators-mb {
+          display: none;
+          width: 200px;
+          list-style: none;
+          padding: 0;
+          .indicator {
+            margin: 10px 0;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            &:hover,
+            &.selected {
+              background-color: #ef004a;
             }
           }
         }

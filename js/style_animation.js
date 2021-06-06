@@ -2,7 +2,6 @@
     const indicators = $(".indicator");
 
 $(document).ready(function(){
-
    for (let i = 0; i < procedures.length; i++) {
         if(i!==0){
             $("#procedure__step-"+i).addClass("hide");
@@ -13,9 +12,10 @@ $(document).ready(function(){
         }
         var lastProc = $(".show").index();
         var lastIndic = $(".active").index();
+        
         $("#procedure__step-"+i).click(function(){
             var count = lastProc + 1;
-           
+            
             console.log("last-procedure--"+lastProc);
             console.log("last-indicator--"+lastIndic);
             console.log("current-Index--" +count);
@@ -25,6 +25,9 @@ $(document).ready(function(){
             showIndicator(count, lastIndic);
             lastProc = count;
             lastIndic = count;
+            var htmlIndicator = $("#indicator-"+count).html();
+            $("#get-name-step").html(htmlIndicator);
+            
             }
         })
         $("#indicator-"+i).click(function(){
@@ -37,61 +40,75 @@ $(document).ready(function(){
             showProcedure(currentIndex, lastProc);
             showIndicator(currentIndex, lastIndic);
 
-            // $("#procedure__step-"+currentIndex).removeClass("hide");
-            // $("#procedure__step-"+currentIndex).addClass("show");
-            // $("#indicator-"+currentIndex).removeClass("unactive");
-            // $("#indicator-"+currentIndex).addClass("active");
-
-            // $("#procedure__step-"+lastProc).addClass("hide");
-            // $("#procedure__step-"+lastProc).removeClass("show");
-            // $("#indicator-"+lastIndic).addClass("unactive");
-            // $("#indicator-"+lastIndic).removeClass("active");
             lastProc = currentIndex;
             lastIndic = currentIndex;
+        });
+        $("#indicator-mb-"+i).click(function(){
+            $("#indicators-mb").hide();
+            var currentIndex = $(this).index();
+            console.log("last-procedure--"+lastProc);
+            console.log("last-indicator--"+lastIndic);
+            console.log("current-Index--" +currentIndex);
+            console.log("=========================");
+
+            showProcedure(currentIndex, lastProc);
+            showIndicator(currentIndex, lastIndic);
+
+            $("#indicator-mb-"+currentIndex).addClass("selected");
+            $("#indicator-mb-"+lastProc).removeClass("selected");
+
+            lastProc = currentIndex;
+            lastIndic = currentIndex;
+            
+            var htmlIndicator = $("#indicator-"+currentIndex).html();
+            $("#get-name-step").html(htmlIndicator);
         });
    }
     var lastProc = $(".show").index();
     var lastIndic = $(".active").index();
-   $("#button_right").click(function(e){
-    e.preventDefault();
-    var count = lastProc + 1;
+//    $("#button_right").click(function(e){
+//     e.preventDefault();
+//     var count = lastProc + 1;
 
-    console.log("last-procedure--"+lastProc);
-    console.log("last-indicator--"+lastIndic);
-    console.log("current-Index--" +count);
-    console.log("=========================");
+//     console.log("last-procedure--"+lastProc);
+//     console.log("last-indicator--"+lastIndic);
+//     console.log("current-Index--" +count);
+//     console.log("=========================");
 
-    if(count < procedures.length){
-        showProcedure(count, lastProc);
-        showIndicator(count, lastIndic);
-    lastProc = count;
-    lastIndic = count;
-    }
-    });
+//     if(count < procedures.length){
+//         showProcedure(count, lastProc);
+//         showIndicator(count, lastIndic);
+//     lastProc = count;
+//     lastIndic = count;
+//     }
+//     });
 
-   $("#button_left").click(function(e){
-    e.preventDefault();
-    var count = lastProc - 1;
+//    $("#button_left").click(function(e){
+//     e.preventDefault();
+//     var count = lastProc - 1;
 
-    console.log("last-procedure--"+lastProc);
-    console.log("last-indicator--"+lastIndic);
-    console.log("current-Index--" +count);
-    console.log("=========================");
+//     console.log("last-procedure--"+lastProc);
+//     console.log("last-indicator--"+lastIndic);
+//     console.log("current-Index--" +count);
+//     console.log("=========================");
 
-    if(count>=0){
-        showProcedure(count, lastProc);
-        showIndicator(count, lastIndic);
-    lastProc = count;
-    lastIndic = count;
-    }
-    });
+//     if(count>=0){
+//         showProcedure(count, lastProc);
+//         showIndicator(count, lastIndic);
+//     lastProc = count;
+//     lastIndic = count;
+//     }
+//     });
 
     $("#button_right-mb").click(function(e){
         e.preventDefault();
         console.log("last-procedure--"+lastProc);
-    console.log("last-indicator--"+lastIndic);
-    console.log("current-Index--" +count);
-    console.log("=========================");
+        console.log("last-indicator--"+lastIndic);
+        console.log("current-Index--" +count);
+        console.log("=========================");
+
+        $(this).css("color", "#ef004a");
+        $("#button_left-mb").css("color", "#fff");
 
         var count = lastProc + 1;
         if(count < procedures.length){
@@ -103,14 +120,20 @@ $(document).ready(function(){
             lastProc = count;
             var htmlIndicator = $("#indicator-"+count).html();
             $("#get-name-step").html(htmlIndicator);
+        }else{
+            $(this).css("color", "#ccc")
         }
     });
+
     $("#button_left-mb").click(function(e){
         e.preventDefault();
         console.log("last-procedure--"+lastProc);
-    console.log("last-indicator--"+lastIndic);
-    console.log("current-Index--" +count);
-    console.log("=========================");
+        console.log("last-indicator--"+lastIndic);
+        console.log("current-Index--" +count);
+        console.log("=========================");
+
+        $(this).css("color", "#ef004a");
+        $("#button_right-mb").css("color", "#fff");
 
         var count = lastProc - 1;
         if(count >= 0){
@@ -123,10 +146,16 @@ $(document).ready(function(){
             var htmlIndicator = $("#indicator-"+count).html();
             console.log(htmlIndicator);
             $("#get-name-step").html(htmlIndicator);
-           
+        }else{
+            $(this).css("color", "#ccc")
         }
     });
-
+    $("#show-menu-btn").click(function(e){
+        e.preventDefault();
+        $("#indicators-mb").show();
+        console.log("ok");
+        
+    })
     function showIndicator(x, currentIndex){
         $("#indicator-" + x).removeClass("unactive");
         $("#indicator-" + x).addClass("active");

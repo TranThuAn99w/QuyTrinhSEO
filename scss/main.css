@@ -272,6 +272,9 @@ main .controls .controls__desk {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #4f4f4f;
 }
 
@@ -295,25 +298,6 @@ main .controls .controls__desk .button {
   color: #4f4f4f;
   border: none;
   outline: none;
-}
-
-main .controls .controls__desk a.button {
-  width: 125px;
-  font-size: 18px;
-  padding: 10px;
-  margin: 0;
-  color: #4f4f4f;
-}
-
-main .controls .controls__desk a.button:hover {
-  -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
-  -webkit-transition: 0.3s all ease-in-out;
-  transition: 0.3s all ease-in-out;
-}
-
-main .controls .controls__desk a.button span {
-  margin-left: 5px;
 }
 
 main .controls .controls__desk .nav__foot {
@@ -433,51 +417,51 @@ main .controls .controls__mb #get-name-step span {
   margin-left: 10px;
 }
 
-@media (max-width: 1200px) {
-  main .controls .controls__desk {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  main .controls .controls__desk a.button,
-  main .controls .controls__desk .indicator {
-    max-width: 60px;
-    -webkit-transition: 0.5s all ease-out;
-    transition: 0.5s all ease-out;
-  }
-  main .controls .controls__desk a.button span,
-  main .controls .controls__desk .indicator span {
-    display: none;
-  }
-  main .controls .controls__desk .indicator:hover,
-  main .controls .controls__desk a.button:hover {
-    max-width: 125px;
-  }
-  main .controls .controls__desk .indicator:hover span,
-  main .controls .controls__desk a.button:hover span {
-    display: block;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    background-color: #4f4f4f;
-    color: white;
-    position: absolute;
-    top: -50px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  main .controls .controls__desk .indicator:hover span::after,
-  main .controls .controls__desk a.button:hover span::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: #4f4f4f;
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-  }
+main .controls .controls__mb-menu {
+  position: absolute;
+  z-index: 9;
+  background-color: #4f4f4f;
+  top: 0;
+  right: 0;
+  z-index: 8s;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+}
+
+main .controls .controls__mb-menu .button {
+  font-size: 20px;
+}
+
+main .controls .controls__mb-menu .button .fa-hamburger {
+  color: white;
+}
+
+main .controls .controls__mb-menu #indicators-mb {
+  display: none;
+  width: 200px;
+  list-style: none;
+  padding: 0;
+}
+
+main .controls .controls__mb-menu #indicators-mb .indicator {
+  margin: 10px 0;
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+main .controls .controls__mb-menu #indicators-mb .indicator:hover, main .controls .controls__mb-menu #indicators-mb .indicator.selected {
+  background-color: #ef004a;
 }
 
 @media (max-width: 900px) {
@@ -623,7 +607,7 @@ body h3 {
   line-height: 60px;
 }
 
-main .controls .controls__desk .button:hover, main .controls .controls__desk .button:focus, main .controls .controls__desk a.button:hover, main .controls .controls__desk .nav__foot #indicators .indicator.active, main .controls .controls__desk .nav__foot #indicators .indicator:hover, body .button__link {
+main .controls .controls__desk .button:hover, main .controls .controls__desk .button:focus, main .controls .controls__desk .nav__foot #indicators .indicator.active, main .controls .controls__desk .nav__foot #indicators .indicator:hover, body .button__link {
   background-color: #ef004a;
   color: white;
   font-weight: 700;
@@ -904,8 +888,17 @@ main .controls .controls__desk .button:hover, main .controls .controls__desk .bu
     font-size: 18px;
   }
   main {
-    padding: 5px;
     min-height: 0;
+    padding: 5px;
+  }
+  main .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .procedure {
+    min-height: 700px;
   }
   main .procedure#procedure__step-0 {
     height: 736px;

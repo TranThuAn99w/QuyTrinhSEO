@@ -4,6 +4,7 @@
 // modules
 $font-stack: "Encode Sans", sans-serif;
 $color-primary: #4f4f4f;
+
 // ====================== //
 @include respond-tabLand {
   main {
@@ -129,6 +130,7 @@ $color-primary: #4f4f4f;
     }
   }
 }
+
 @include respond-tabPort {
   main {
     padding: 10px;
@@ -253,6 +255,7 @@ $color-primary: #4f4f4f;
     }
   }
 }
+
 @include respond-phone {
   body {
     h3.content__head {
@@ -269,10 +272,13 @@ $color-primary: #4f4f4f;
     }
   }
   main {
-    padding: 5px;
     min-height: 0;
-
+    padding: 5px;
+    .row {
+      flex-direction: column;
+    }
     .procedure {
+      min-height: 700px;
       &#procedure__step-0 {
         height: 736px;
         @include build-content-after("../images/bg-mb-0.png");

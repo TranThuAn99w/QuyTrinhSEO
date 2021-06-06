@@ -14,7 +14,6 @@
   }
 }
 
-// mixins
 @mixin dflex-center($fd: column) {
   display: flex;
   flex-direction: $fd;
